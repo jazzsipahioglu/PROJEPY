@@ -9,9 +9,9 @@ Original file is located at
 
 
 
-!pip install yfinance
+!pip install yahoo-finance
 
-!import yfinance as yf
+!from yahoo_finance import Share
 
 !pip install pandas
 
