@@ -94,10 +94,7 @@ def grafikgetir(sembol,baslangic,bitis):
         predict=predict[["ds","trend"]]
         predict=predict.set_index("ds")
         st.line_chart(predict["trend"]       
-                      
-                      
-    else:
-        pass
+
                       
 grafikgetir(sembol,baslangic,bitis)
 
