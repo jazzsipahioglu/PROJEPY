@@ -99,26 +99,3 @@ def grafikgetir(sembol,baslangic,bitis):
         pass
 grafikgetir(sembol,baslangic,bitis)
 
-
-data_pred = data[['Date','close']]
-data_pred=data_pred.rename(columns={"Date": "ds", "close": "y"})
-
-# code for facebook prophet prediction
-
-m = Prophet()
-m.fit(data_pred)
-future = m.make_future_dataframe(periods=period)
-forecast = m.predict(future)
-
-#plot forecast
-fig1 = plot_plotly(m, forecast)
-if st.checkbox('Show forecast data'):
-    st.subheader('forecast data')
-    st.write(forecast)
-st.write('Forecasting closing of stock value for'+option+' for a period of: '+str(year)+'year')
-st.plotly_chart(fig1)
-
-#plot component wise forecast
-st.write("Component wise forecast")
-fig2 = m.plot_components(forecast)
-st.write(fig2)
