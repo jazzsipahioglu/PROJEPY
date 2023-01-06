@@ -9,27 +9,27 @@ Original file is located at
 
 
 
-pip install yfinance
+!pip install yfinance
 
-import yfinance as yf
+!import yfinance as yf
 
-pip install pandas
+!pip install pandas
 
-pip install numpy
+!pip install numpy
 
-pip install matplotlib
+!pip install matplotlib
 
-pip install datetime
+!pip install datetime
 
-pip install plotly
+!pip install plotly
 
-pip install tensorflow
+!pip install tensorflow
 
-pip install keras
+!pip install keras
 
-pip install sklearn
+!pip install sklearn
 
-pip install price-predictor
+!pip install price-predictor
 
 from datetime import datetime, timedelta
 import numpy as np
@@ -124,5 +124,3 @@ from sklearn.preprocessing import MinMaxScaler
 !streamlit run app.py &>/dev/null&
 
 from pyngrok import ngrok
-
-docker-compose up
