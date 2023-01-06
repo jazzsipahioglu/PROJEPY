@@ -79,10 +79,10 @@ st.sidebar.write("### Machine Learning Tahmin")
 
 prophet=st.sidebar.checkbox("Tahmin")
 
-    def grafikgetir(sembol,baslangic,bitis):
-        data=yf.Ticker(sembol)
-        df=data.history(period="1",start=baslangic,end=bitis)
-        st.line_chart(df["Open"])
+def grafikgetir(sembol,baslangic,bitis):
+    data=yf.Ticker(sembol)
+    df=data.history(period="1",start=baslangic,end=bitis)
+    st.line_chart(df["Open"])
         if prophet:
             fb=df.reset_index()
             fb=fb[["Date","Close"]]
@@ -94,5 +94,5 @@ prophet=st.sidebar.checkbox("Tahmin")
             predict=predict[["ds","trend"]]
             predict=predict.set_index("ds")
             st.line_chart(predict["trend"]       
-    grafikgetir()
+grafikgetir()
 
