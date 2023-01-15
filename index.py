@@ -1,6 +1,6 @@
 import warnings
 
-import prophet as prophet
+import Prophet as prophet
 from prophet.plot import plot_cross_validation_metric
 
 warnings.filterwarnings('ignore')
