@@ -1,8 +1,8 @@
 import os
 import warnings
 
-import prophet as Prophet
-from prophet.plot import plot_cross_validation_metric
+import fbprophet as Prophet
+from fbprophet.plot import plot_cross_validation_metric
 
 warnings.filterwarnings('ignore')
 import pandas as pd
@@ -100,7 +100,7 @@ prophet=st.sidebar.checkbox("Tahmin")
 
 if prophet:
     pparalik=range(1,1500)
-    ppperiyot=st.sidebar.select_slider("Periyot", options=zaman_aralik, value=30)
+    fbperiyot=st.sidebar.select_slider("Periyot", options=zaman_aralik, value=30)
     components=st.sidebar.checkbox("Components")
 
 if prophet:
@@ -143,17 +143,16 @@ def grafikgetir(sembol,baslangic,bitis):
     df=data.history(period="1d",start=baslangic, end=bitis)
     st.line_chart(df["Close"])
     if prophet:
-        prophet=df.reset_index()
-        prophet=prophet[["Date","Close"]]
-        prophet.columns=["ds","y"]
+        fb=df.reset_index()
+        fb=fb[["Date","Close"]]
+        fb.columns=["ds","y"]
         global model
-        model= Prophet()
+        model= prophet()
 
 
-        model.fit(df)
-        future = model.make_future_dataframe(periods=ppperiyot)
-        forecast = model.predict(future)
-        forecast[['ds', 'yhat', 'yhat_lower', 'yhat_upper']].tail()
+        model.fit(fb)
+        future = model.make_future_dataframe(periods=fbperiyot)
+        predict = model.predict(future)
         grap = model.plot(forecast)
         st.write(grap)
 
