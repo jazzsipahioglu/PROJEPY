@@ -1,6 +1,3 @@
-!pip install pystan
-!pip install yfinance 
-!pip install Prophet 
 
 mport warnings
 
@@ -13,6 +10,7 @@ import numpy as np
 import plotly.figure_factory as ff
 from plotly import graph_objs as go
 import yfinance as yf
+from yahoofinancials import YahooFinancials
 import streamlit as st
 from datetime import datetime, timedelta
 import matplotlib.pyplot as plt
