@@ -1,4 +1,8 @@
-import warnings
+!pip install pystan
+!pip install yfinance 
+!pip install Prophet 
+
+mport warnings
 
 import Prophet as prophet
 from prophet.plot import plot_cross_validation_metric
